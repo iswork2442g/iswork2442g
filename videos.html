@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="阿北 - VTuber 官方網站 - 最新影片">
+    <meta name="keywords" content="阿北,VTuber,台灣VTuber,直播,實況,遊戲,動畫,插畫">
+    <title>阿北 - 影片</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="videos-page">
+    <div class="menu-btn">
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+    </div>
+    
+    <div class="menu-overlay">
+        <div class="menu-content">
+            <div class="menu-image"></div>
+            <div class="menu-right">
+                <nav class="menu-links">
+                    <a href="index.html" class="menu-link">首頁</a>
+                    <a href="profile.html" class="menu-link">個人檔案</a>
+                    <a href="videos.html" class="menu-link">影片</a>
+                </nav>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="ja">日本語</button>
+                    <button class="lang-btn" data-lang="en">English</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-decorations">
+        <div class="video-shape video-circle"></div>
+        <div class="video-shape video-square"></div>
+        <div class="video-shape video-triangle"></div>
+        <div class="video-shape video-ring"></div>
+        <!-- 新增浮動裝飾 -->
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+
+    <div class="videos-container">
+        <div class="videos-banner">
+            <h1>最新影片</h1>
+        </div>
+
+        <main class="latest-videos">
+            <div class="video-grid" id="ytVideos">
+                <!-- YouTube videos will be loaded here -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const channelId = 'UCd1bKfF_ded-VJcxAQfNsBg';
+        const apiKey = 'AIzaSyCquFJRRqgDlM_L-J8OvfLOgxoo8lBWQ8o'; // 請替換成你的 API 金鑰
+        const maxResults = 9;
+
+        function createVideoCard(item) {
+            const videoCard = document.createElement('div');
+            videoCard.className = 'video-card';
+            videoCard.innerHTML = `
+                <div class="video-embed">
+                    <iframe 
+                        src="https://www.youtube.com/embed/${item.id.videoId}" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h3>${item.snippet.title}</h3>
+                    <div class="video-meta">
+                        <span class="video-date">
+                            <i class="far fa-calendar-alt"></i>
+                            ${new Date(item.snippet.publishedAt).toLocaleDateString()}
+                        </span>
+                    </div>
+                </div>
+            `;
+            return videoCard;
+        }
+
+        async function loadYouTubeVideos() {
+            try {
+                const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=${maxResults}`);
+                const data = await response.json();
+                
+                if (!response.ok) throw new Error('YouTube API request failed');
+
+                const videosContainer = document.getElementById('ytVideos');
+                data.items.forEach(item => {
+                    if (item.id.videoId) {
+                        const videoCard = createVideoCard(item);
+                        videosContainer.appendChild(videoCard);
+                    }
+                });
+            } catch (error) {
+                console.error('Error loading YouTube videos:', error);
+                document.getElementById('ytVideos').innerHTML = '<p>無法載入影片，請稍後再試。</p>';
+            }
+        }
+
+        // 初始化選單功能
+        const menuBtn = document.querySelector('.menu-btn');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        });
+
+        document.addEventListener('DOMContentLoaded', loadYouTubeVideos);
+    </script>
+</body>
+</html>

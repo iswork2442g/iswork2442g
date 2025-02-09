@@ -1,0 +1,2281 @@
+:root {
+    --primary-color: #FFA500;
+    --secondary-color: #FFE4B5;
+    --text-color: #4A4A4A;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #ff69b4;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.vtuber-profile {
+    display: flex;
+    gap: 2rem;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9);
+    transition: transform 0.3s ease;
+}
+
+.vtuber-profile:hover {
+    transform: translateY(-5px);
+}
+
+.profile-image img {
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+h2 {
+    color: #ff69b4;
+    margin-top: 1.5rem;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #333;
+    color: white;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.glow {
+    text-shadow: 0 0 10px #ff69b4,
+                 0 0 20px #ff69b4,
+                 0 0 30px #ff69b4;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #ff69b4; }
+    to { text-shadow: 0 0 20px #ff69b4, 0 0 30px #ff1493; }
+}
+
+.hover-effect {
+    transition: transform 0.5s ease;
+}
+
+.hover-effect:hover {
+    transform: scale(1.05);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-btn {
+    background: #ff69b4;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+    background: #ff1493;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.stat-box {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 105, 180, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff69b4;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .vtuber-profile {
+        flex-direction: column;
+    }
+    
+    .profile-image img {
+        width: 100%;
+    }
+}
+
+/* Landing Page Styles */
+.landing-page {
+    background: 
+        linear-gradient(135deg, rgba(255, 218, 185, 0.2) 0%, transparent 50%),
+        linear-gradient(-135deg, rgba(255, 165, 0, 0.15) 0%, transparent 50%),
+        linear-gradient(to right, #fff8ef 0%, #fff 100%);
+    position: relative;
+    min-height: 100vh;  /* 改用 min-height */
+    height: 100%;
+    overflow-y: auto;   /* 允許垂直滾動 */
+}
+
+.landing-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 30%, rgba(255, 165, 0, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.landing-page::after {
+    display: none;
+}
+
+.hero-section {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;  /* 確保最小高度 */
+}
+
+.full-screen-image {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+
+.button-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #FFFFFF 100%);
+}
+
+.button-section.compact {
+    height: 50vh;
+    background: linear-gradient(0deg, var(--secondary-color) 0%, transparent 100%);
+}
+
+.button-section.super-compact {
+    position: relative;
+    min-height: 100px;
+    height: auto;
+    margin-top: 0;
+    padding: 2rem 0;
+    background: linear-gradient(0deg, var(--secondary-color) 0%, transparent 100%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 2;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--primary-color);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    width: 40px; /* 確保箭頭容器有固定寬度 */
+    height: 40px; /* 確保箭頭容器有固定高度 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    transform: translateX(-50%) scale(1.1);
+    opacity: 0.9;
+}
+
+.scroll-indicator i {
+    transform-origin: center; /* 確保箭頭從中心點動畫 */
+    animation: bounceArrow 2s infinite;
+    display: block; /* 讓箭頭圖標為塊級元素 */
+    text-align: center; /* 文字置中 */
+    line-height: 1; /* 調整行高 */
+}
+
+@keyframes bounceArrow {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+.scroll-text {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-30px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-15px) translateX(-50%);
+    }
+}
+
+.intro-container {
+    text-align: center;
+}
+
+.intro-image {
+    max-height: 70vh;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.drumstick-btn {
+    position: relative;
+    width: 200px;
+    height: 80px;
+    background: transparent;
+    border: 3px solid var(--primary-color);
+    border-radius: 40px;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    overflow: hidden;
+    opacity: 1; /* 移除透明度 */
+    animation: none; /* 移除淡入動畫 */
+}
+
+.drumstick-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+    z-index: 1;
+    border-radius: 35px;
+}
+
+.drumstick-btn:hover {
+    transform: scale(1.1);
+}
+
+.drumstick-btn:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.btn-text {
+    position: relative;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.drumstick-btn:hover .btn-text {
+    color: white;
+}
+
+/* Profile Page Styles */
+.profile-page {
+    background: 
+        linear-gradient(45deg, var(--secondary-color) 0%, transparent 30%),
+        linear-gradient(-45deg, rgba(255, 165, 0, 0.1) 0%, transparent 30%),
+        linear-gradient(135deg, rgba(255, 218, 185, 0.3) 0%, transparent 40%),
+        linear-gradient(to right, #fff8ef 0%, #fff 100%);
+    position: relative;
+}
+
+.profile-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 165, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 218, 185, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.main-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.profile-container {
+    display: flex;
+    gap: 3rem;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(5px);
+}
+
+.full-image {
+    flex: 1;
+}
+
+.full-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.info-section {
+    flex: 2;
+    padding: 1rem;
+}
+
+.info-block {
+    margin-bottom: 2rem;
+}
+
+/* 重寫翻轉卡片樣式 */
+.fav-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.fav-item {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.fav-card {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0.03, 0.5, 1);
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.fav-front,
+.fav-back {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 0;
+    top: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.fav-front {
+    background: white;
+}
+
+.fav-front img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.fav-back {
+    background: var(--primary-color);
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.fav-item:hover .fav-card {
+    transform: rotateY(180deg);
+}
+
+/* 調整響應式布局 */
+@media (max-width: 768px) {
+    .fav-item {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .fav-card,
+    .fav-front,
+    .fav-back,
+    .fav-front img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* 新增浮動社交媒體圖標 */
+.floating-socials {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 100;
+}
+
+.social-float {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.social-float:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.5);
+}
+
+/* 修改浮動社交媒體圖標 */
+.floating-socials.landing .social-float {
+    opacity: 0;
+    animation: slideInLeft 1s ease forwards;
+}
+
+.floating-socials.landing .social-float:nth-child(1) { animation-delay: 0.6s; }
+floating-socials.landing .social-float:nth-child(2) { animation-delay: 1.0s; }
+.floating-socials.landing .social-float:nth-child(3) { animation-delay: 1.4s; }
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 技能條樣式 */
+.skill-bars {
+    margin: 20px 0;
+}
+
+.skill {
+    margin-bottom: 15px;
+}
+
+.skill-name {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.skill-bar {
+    height: 10px;
+    background: var(--primary-color);
+    border-radius: 5px;
+    transition: width 0.8s ease;
+}
+
+/* 裝飾元素 */
+.image-decorations div {
+    position: absolute;
+    opacity: 0.5;
+    animation: float 3s ease-in-out infinite;
+}
+
+.deco-circle {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    top: 10%;
+    right: -25px;
+}
+
+.deco-square {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--primary-color);
+    transform: rotate(45deg);
+    bottom: 20%;
+    left: -20px;
+}
+
+.deco-triangle {
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 43px solid var(--primary-color);
+    top: 40%;
+    right: -25px;
+}
+
+/* 動畫區塊 */
+.animated-block {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1.2s ease;
+}
+
+.animated-block.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 新增魔法陣和裝飾效果 */
+.page-decorations {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.magic-circle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    top: 10%;
+    right: 5%;
+    opacity: 0.2;
+    animation: rotate 30s linear infinite;
+}
+
+.magic-circle::before, .magic-circle::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    animation: pulse 3s ease-out infinite;
+}
+
+.sparkles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 45%, var(--primary-color) 50%, transparent 55%);
+    background-size: 10px 10px;
+    opacity: 0.1;
+}
+
+/* 成就系統樣式 */
+.achievement-tiles {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeInFromTop 1.5s ease forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes fadeInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.achievement {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(255, 165, 0, 0.1);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.achievement:hover {
+    transform: scale(1.05);
+    background: rgba(255, 165, 0, 0.2);
+}
+
+.achievement i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    from { transform: scale(1); opacity: 0.5; }
+    to { transform: scale(1.5); opacity: 0; }
+}
+
+/* 增加主頁裝飾 */
+.landing-shapes {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.landing-shape {
+    position: absolute;
+    border: 2px solid var(--primary-color);
+    opacity: 0.08;
+    animation: floatSlow 20s infinite ease-in-out;
+}
+
+.landing-circle-1 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    left: 5%;
+    top: 20%;
+}
+
+.landing-circle-2 {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    right: 8%;
+    bottom: 25%;
+    animation-delay: -5s;
+}
+
+.landing-square-1 {
+    width: 80px;
+    height: 80px;
+    transform: rotate(45deg);
+    right: 15%;
+    top: 30%;
+    animation-delay: -8s;
+}
+
+.landing-square-2 {
+    width: 40px;
+    height: 40px;
+    transform: rotate(30deg);
+    left: 12%;
+    bottom: 35%;
+    animation-delay: -12s;
+}
+
+.landing-triangle-1 {
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 85px solid var(--primary-color);
+    opacity: 0.06;
+    right: 20%;
+    top: 60%;
+    animation-delay: -3s;
+}
+
+.landing-triangle-2 {
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 50px solid var(--primary-color);
+    opacity: 0.06;
+    left: 18%;
+    top: 40%;
+    animation-delay: -15s;
+}
+
+.landing-ring {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 12px solid var(--primary-color);
+    opacity: 0.04;
+    right: 12%;
+    bottom: 40%;
+    animation: floatRotate 30s infinite linear;
+}
+
+/* 增加浮動裝飾元素 */
+.floating-decor {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.decor-element {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.15;
+    filter: none;
+}
+
+.decor-1 { top: 15%; left: 10%; animation: float 8s ease-in-out infinite; }
+.decor-2 { top: 40%; right: 15%; animation: float 6s ease-in-out infinite; }
+.decor-3 { bottom: 25%; left: 20%; animation: float 7s ease-in-out infinite; }
+.decor-4 { top: 60%; right: 25%; animation: float 9s ease-in-out infinite; }
+.decor-5 { top: 30%; left: 30%; animation: float 10s ease-in-out infinite; }
+
+/* 添加浮動動畫變體 */
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(5px, -5px) rotate(2deg); }
+    50% { transform: translate(0, -10px) rotate(0deg); }
+    75% { transform: translate(-5px, -5px) rotate(-2deg); }
+}
+
+/* 重新設計背景裝飾 */
+.bg-decorations {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-shape {
+    position: absolute;
+    opacity: 0.08;
+    border: 2px solid var(--primary-color);
+}
+
+.shape-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    top: 25%;
+    right: 5%;
+}
+
+.shape-square {
+    width: 60px;
+    height: 60px;
+    transform: rotate(45deg);
+    bottom: 30%;
+    right: 8%;
+}
+
+.shape-triangle {
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 70px solid var(--primary-color);
+    opacity: 0.06;
+    top: 45%;
+    left: 5%;
+}
+
+/* ...existing code... */
+
+/* 重新設計背景裝飾 */
+.geometric-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.geometric-shape {
+    position: absolute;
+    border: 2px solid var(--primary-color);
+    opacity: 0.06;
+}
+
+.geo-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    right: 10%;
+    top: 15%;
+    animation: floatSlow 15s infinite ease-in-out;
+}
+
+.geo-square {
+    width: 120px;
+    height: 120px;
+    transform: rotate(45deg);
+    left: 8%;
+    bottom: 20%;
+    animation: floatSlow 18s infinite ease-in-out reverse;
+}
+
+.geo-triangle {
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    border-bottom: 120px solid var(--primary-color);
+    opacity: 0.04;
+    right: 15%;
+    bottom: 15%;
+    animation: floatSlow 20s infinite ease-in-out;
+}
+
+.geo-ring {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border-width: 15px;
+    left: 15%;
+    top: 25%;
+    animation: floatRotate 25s infinite linear;
+}
+
+@keyframes floatSlow {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-20px, 20px); }
+}
+
+@keyframes floatRotate {
+    from { transform: rotate(0deg) translate(20px) rotate(0deg); }
+    to { transform: rotate(360deg) translate(20px) rotate(-360deg); }
+}
+
+/* 添加雲狀裝飾 */
+.cloud-decorations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cloud {
+    position: absolute;
+    background: linear-gradient(to bottom right, 
+        rgba(255, 222, 173, 0.2),
+        rgba(255, 218, 185, 0.1)
+    );
+    border-radius: 50%;
+    filter: blur(20px);
+}
+
+.cloud-1 {
+    width: 300px;
+    height: 200px;
+    top: 10%;
+    right: 5%;
+    animation: cloudFloat 25s infinite ease-in-out;
+}
+
+.cloud-2 {
+    width: 250px;
+    height: 150px;
+    bottom: 15%;
+    left: 10%;
+    animation: cloudFloat 30s infinite ease-in-out reverse;
+}
+
+.cloud-3 {
+    width: 200px;
+    height: 120px;
+    top: 40%;
+    right: 15%;
+    animation: cloudFloat 28s infinite ease-in-out 1s;
+}
+
+@keyframes cloudFloat {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-30px, 20px); }
+}
+
+/* ...rest of existing code... */
+
+/* 左上角幾何圖形 */
+.corner-geometric {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.corner-shape {
+    position: absolute;
+    border: 2px solid var(--primary-color);
+    width: 100%;
+    height: 100%;
+    transform: rotate(45deg);
+    animation: rotateSlowly 20s linear infinite;
+}
+
+@keyframes rotateSlowly {
+    from { transform: rotate(45deg); }
+    to { transform: rotate(405deg); }
+}
+
+/* 調整選單按鈕 */
+.menu-btn {
+    position: fixed;
+    top: 25px;
+    right: 35px;
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.menu-line {
+    width: 30px;
+    height: 3px; /* 統一線條粗細 */
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.4);
+}
+
+/* 修正選單按鈕叉叉的旋轉和位移 */
+.menu-btn.active .menu-line:nth-child(1) {
+    transform: translateY(11px) rotate(45deg); /* 修正旋轉軸心 */
+}
+
+.menu-btn.active .menu-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.menu-btn.active .menu-line:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg); /* 修正旋轉軸心 */
+}
+
+/* ...rest of existing code... */
+
+.back-home {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    z-index: 100;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-home:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.3);
+}
+
+/* 個人資料頁幾何裝飾 */
+.profile-shapes {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.profile-shape {
+    position: absolute;
+    border: 2px solid var(--primary-color);
+    opacity: 0.08;
+}
+
+.shape-1 {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    top: 20%;
+    left: 5%;
+    animation: floatSlow 15s infinite ease-in-out;
+}
+
+.shape-2 {
+    width: 50px;
+    height: 50px;
+    transform: rotate(45deg);
+    bottom: 25%;
+    right: 7%;
+    animation: floatSlow 18s infinite ease-in-out reverse;
+}
+
+.shape-3 {
+    border-left: 35px solid transparent;
+    border-right: 35px solid transparent;
+    border-bottom: 60px solid var(--primary-color);
+    opacity: 0.06;
+    top: 60%;
+    left: 8%;
+    animation: floatSlow 20s infinite ease-in-out;
+}
+
+/* ...existing code... */
+
+/* 重新定義主頁幾何圖形 */
+.animated-geometrics {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.geo-animated {
+    position: absolute;
+    border: 2px solid var(--primary-color);
+    opacity: 0.3;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* 基本形狀樣式 */
+.geo-circle {
+    border-radius: 50%;
+}
+
+.geo-animated.circle-1 {
+    width: 30px;
+    height: 30px;
+    left: 5%;
+    top: 15%;
+    animation: rotate 15s infinite;
+}
+
+.geo-animated.circle-2 {
+    width: 25px;
+    height: 25px;
+    right: 8%;
+    bottom: 20%;
+    animation: rotate 12s infinite reverse;
+}
+
+.geo-animated.square {
+    width: 25px;
+    height: 25px;
+    left: 10%;
+    top: 40%;
+    transform: rotate(45deg);
+    animation: bounce 10s infinite;
+}
+
+.geo-animated.triangle {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 25px solid var(--primary-color);
+    right: 12%;
+    top: 35%;
+    animation: float 8s infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(-20px); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* 添加實心線框幾何動畫 */
+.animated-geometrics {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.geo-animated {
+    position: absolute;
+    border: 2px solid var(--primary-color);
+    opacity: 0.6;
+}
+
+.geo-circle-large {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    right: 5%;
+    top: 25%;
+}
+
+.geo-circle-small {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    left: 8%;
+    bottom: 20%;
+}
+
+.geo-square {
+    width: 35px;
+    height: 35px;
+    left: 4%;
+    top: 30%;
+    transform: rotate(45deg);
+}
+
+.geo-triangle {
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 35px solid var(--primary-color);
+    right: 10%;
+    bottom: 25%;
+}
+
+.geo-circle-large {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    right: 10%;
+    top: 20%;
+    animation: rotateFloat 20s linear infinite;
+}
+
+.geo-circle-small {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    left: 15%;
+    bottom: 25%;
+    animation: rotateFloat 15s linear infinite reverse;
+}
+
+.geo-square-large {
+    width: 120px;
+    height: 120px;
+    border: 3px solid var(--primary-color);
+    left: 8%;
+    top: 30%;
+    animation: rotateSquare 18s linear infinite;
+}
+
+.geo-square-small {
+    width: 70px;
+    height: 70px;
+    right: 15%;
+    bottom: 30%;
+    animation: rotateSquare 12s linear infinite reverse;
+}
+
+.geo-triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 86px solid var(--primary-color);
+    left: 20%;
+    top: 50%;
+    animation: floatTriangle 15s ease-in-out infinite;
+}
+
+@keyframes rotateFloat {
+    0% { transform: rotate(0deg) translateY(0); }
+    25% { transform: rotate(90deg) translateY(-20px); }
+    50% { transform: rotate(180deg) translateY(0); }
+    75% { transform: rotate(270deg) translateY(20px); }
+    100% { transform: rotate(360deg) translateY(0); }
+}
+
+@keyframes rotateSquare {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(0.8); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes floatTriangle {
+    0%, 100% { transform: rotate(0deg) translateY(0); }
+    50% { transform: rotate(180deg) translateY(-30px); }
+}
+
+/* 選單樣式 */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;  /* 改為-100% */
+    width: 100%;   /* 改為全寬 */
+    height: 100vh;
+    background: none;
+    backdrop-filter: blur(8px);
+    z-index: 99;
+    transition: 0.5s ease-in-out;
+    display: flex;
+    visibility: hidden; /* 新增 */
+}
+
+.menu-overlay.active {
+    right: 0;
+    visibility: visible; /* 新增 */
+}
+
+.menu-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-image {
+    width: 75%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+                url('your-menu-image.jpg') center/cover;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 修正選單右側樣式 */
+.menu-right {
+    width: 25%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 確保內容分布在兩端 */
+}
+
+.menu-links {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* 刪除其他地方的 language-switcher 樣式，只保留這一個 */
+.language-switcher {
+    margin-top: auto; /* 推到底部 */
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 0;
+    width: 100%;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .menu-content {
+        flex-direction: column;
+    }
+    
+    .menu-image {
+        width: 100%;
+        height: 70vh;
+    }
+    
+    .menu-right {
+        width: 100%;
+        height: 30vh;
+        padding: 1.5rem;
+    }
+    
+    .language-switcher {
+        padding: 1rem 0;
+    }
+}
+
+/* 美化影片頁面 */
+.videos-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fff8ef 0%, #fff 100%);
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;  /* 確保整個頁面在適當層級 */
+}
+
+/* 最基本的影片頁面橫條樣式 */
+.videos-banner {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, var(--primary-color), #FF8C00);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.videos-banner h1 {
+    color: white;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* 移除之前所有的裝飾效果和動畫 */
+.videos-banner::before,
+.videos-banner::after {
+    display: none;
+}
+
+.latest-videos {
+    flex: 1;
+    max-width: 1400px; /* 增加最大寬度 */
+    width: 90vw; /* 使用視窗寬度的90% */
+    margin: 2rem auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem; /* 增加間距 */
+    margin: 0 auto 2rem;
+    width: 100%;
+}
+
+.video-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+}
+
+.video-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,165,0,0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(255,165,0,0.2);
+}
+
+.video-card:hover::before {
+    opacity: 1;
+}
+
+.video-info {
+    padding: 1.5rem;
+    background: white;
+}
+
+.video-info h3 {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.video-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.video-date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.video-date i {
+    color: var(--primary-color);
+}
+
+.video-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 影片比例 */
+}
+
+.video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 響應式調整 */
+@media (max-width: 1400px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* ...rest of existing code... */
+
+/* 語言切換按鈕 */
+.language-switcher {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem; /* 增加底部間距 */
+}
+
+.lang-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.lang-btn.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Footer logo */
+.footer-logo {
+    width: 80px;
+    margin: 0 auto;
+}
+
+/* Videos page styles */
+.videos-banner {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, var(--primary-color), #FF8C00);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.videos-banner h1 {
+    color: white;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.videos-banner::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('path-to-pattern.png') repeat;
+    opacity: 0.1;
+    animation: slidePattern 20s linear infinite;
+}
+
+.latest-videos {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.video-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(255, 165, 0, 0.2);
+}
+
+.video-info {
+    padding: 1.5rem;
+}
+
+.video-info h3 {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.video-info .date {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+@keyframes slidePattern {
+    from { background-position: 0 0; }
+    to { background-position: 100% 100%; }
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .latest-videos {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .videos-banner {
+        height: 200px;
+    }
+
+    .videos-banner h1 {
+        font-size: 2rem;
+    }
+}
+
+/* SEO相關 */
+.seo-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+/* 調整所有幾何裝飾元素 - 移除 !important 並使用更溫和的方式 */
+.geometric-shape,
+.landing-shape,
+.bg-shape,
+.profile-shape,
+.geo-animated {
+    position: absolute;
+    border: 2px solid var(--primary-color);
+    opacity: 0.08;
+}
+
+/* 縮小並移動所有圓形 */
+.geo-circle-large {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    right: 3%;
+    top: 15%;
+    animation: rotateFloat 20s linear infinite;
+}
+
+.geo-circle-small {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    left: 4%;
+    bottom: 12%;
+    animation: rotateFloat 15s linear infinite reverse;
+}
+
+/* 縮小並移動所有方形 */
+.geo-square {
+    width: 30px;
+    height: 30px;
+    transform: rotate(45deg);
+    left: 3%;
+    top: 25%;
+    animation: rotateSquare 18s linear infinite;
+}
+
+/* 縮小所有三角形 */
+.geo-triangle {
+    border-left: 15px solid transparent;
+    border-right: 15px solid透明 !important;
+    border-bottom: 25px solid var(--primary-color) /*!重要;*/
+}
+
+/* 調整位置到邊緣 */
+.geo-circle-large { right: 3%; top: 15%; }
+.geo-circle-small { left: 4%; bottom: 12%; }
+.geo-square { left: 3%; top: 25%; }
+.geo-triangle { right: 5%; bottom: 18%; }
+
+.landing-circle-1 { left: 3%; top: 18%; }
+.landing-circle-2 { right: 4%; bottom: 15%; }
+.landing-square-1 { right: 5%; top: 22%; }
+.landing-square-2 { left: 4%; bottom: 20%; }
+.landing-triangle-1 { right: 3%; top: 45%; }
+.landing-triangle-2 { left: 5%; top: 35%; }
+
+/* 調整裝飾動畫 */
+@keyframes floatSlow {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-10px, 10px); }
+}
+
+@keyframes rotateFloat {
+    0% { transform: rotate(0deg) translateY(0); }
+    50% { transform: rotate(180deg) translateY(-10px); }
+    100% { transform: rotate(360deg) translateY(0); }
+}
+
+/* ...rest of existing code... */
+
+/* 統一按鈕樣式 */
+.drumstick-btn,
+.videos-btn {
+    position: relative;
+    width: 200px;
+    height: 80px;
+    background: transparent;
+    border: 3px solid var(--primary-color);
+    border-radius: 40px;
+    margin: 0;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 調整按鈕容器樣式 */
+.button-wrapper {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* 新增視頻按鈕樣式 */
+.videos-btn {
+    position: relative;
+    width: 200px;
+    height: 80px;
+    background: transparent;
+    border: 3px solid var(--primary-color);
+    border-radius: 40px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    overflow: hidden;
+}
+
+.videos-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+    z-index: 1;
+    border-radius: 35px;
+}
+
+.videos-btn:hover {
+    transform: scale(1.1);
+}
+
+.videos-btn:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.videos-btn .btn-text {
+    position: relative;
+    color: var(--primary-color);
+    z-index: 2;
+}
+
+.videos-btn:hover .btn-text {
+    color: white;
+}
+
+/* 影片頁面裝飾 */
+.video-decorations {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.video-shape {
+    position: absolute;
+    border: 2px solid var(--primary-color);
+    opacity: 0.08;
+    animation: floatSlow 20s infinite ease-in-out;
+}
+
+.video-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    right: 5%;
+    top: 20%;
+}
+
+.video-square {
+    width: 60px;
+    height: 60px;
+    transform: rotate(45deg);
+    left: 8%;
+    bottom: 25%;
+    animation-delay: -5s;
+}
+
+.video-triangle {
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 50px solid var(--primary-color);
+    right: 15%;
+    bottom: 20%;
+    animation-delay: -8s;
+}
+
+/* ...existing code... */
+
+/* 添加影片頁新裝飾 */
+.video-ring {
+    width: 150px;
+    height: 150px;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    left: 10%;
+    top: 40%;
+    opacity: 0.06;
+    animation: rotate 30s linear infinite;
+}
+
+.floating-shape {
+    position: absolute;
+    opacity: 0.06;
+    animation: float 15s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--primary-color);
+    transform: rotate(45deg);
+    right: 15%;
+    top: 35%;
+    animation-delay: -3s;
+}
+
+.shape-2 {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    left: 20%;
+    bottom: 25%;
+    animation-delay: -6s;
+}
+
+.shape-3 {
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 40px solid var(--primary-color);
+    right: 25%;
+    bottom: 15%;
+    animation-delay: -9s;
+}
+
+/* 更新視頻頁面的基礎樣式 */
+.videos-page {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 確保視頻內容在裝飾之上 */
+.videos-banner,
+.latest-videos {
+    position: relative;
+    z-index: 2;
+}
+
+/* ...existing code... */
+
+/* 修正選單文字樣式 */
+.menu-link {
+    font-size: 2rem;  /* 調整字體大小 */
+    font-weight: bold;  /* 加粗 */
+    color: var(--primary-color);
+    text-decoration: none;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.menu-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .menu-link {
+        font-size: 1.5rem;  /* 移動端適當縮小 */
+    }
+}
+
+/* ...existing code... */
+
+/* 修正影片頁面滾動問題 */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.videos-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fff8ef 0%, #fff 100%);
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.latest-videos {
+    flex: 1;
+    max-width: 1400px; /* 增加最大寬度 */
+    width: 90vw; /* 使用視窗寬度的90% */
+    margin: 2rem auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem; /* 增加間距 */
+    margin: 0 auto 2rem;
+    width: 100%;
+}
+
+.video-card {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+}
+
+.video-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 影片比例 */
+}
+
+.video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 響應式調整 */
+@media (max-width: 1400px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* 確保背景裝飾不會影響滾動 */
+.video-decorations {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ...existing code... */
+
+/* 視頻頁面基礎設定 */
+.videos-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fff8ef 0%, #fff 100%);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* 固定頂部橫條樣式 */
+.videos-banner {
+    position: relative;  /* 使用相對定位而不是固定或黏性定位 */
+    width: 100%;
+    height: 300px;
+    margin: 0;  /* 重要：移除所有邊距 */
+    padding: 0;  /* 重要：移除所有內邊距 */
+    background: linear-gradient(135deg, var(--primary-color), #FF8C00);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.videos-banner h1 {
+    color: white;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* 移除所有可能影響定位的裝飾效果 */
+.videos-banner::before,
+.videos-banner::after {
+    display: none;
+}
+
+/* 內容區域樣式 */
+.latest-videos {
+    flex: 1;
+    padding: 2rem;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1400px;
+}
+
+/* ...existing code... */
+
+/* 色卡樣式 */
+.color-cards {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    display: flex;
+}
+
+.color-card {
+    flex: 1;
+    height: 100%;
+    transition: height 0.3s ease;
+}
+
+.color-card:nth-child(1) { background: #FF69B4; }  /* 粉紅色 */
+.color-card:nth-child(2) { background: #FFB6C1; }  /* 淺粉紅 */
+.color-card:nth-child(3) { background: #FFA500; }  /* 橘色 */
+.color-card:nth-child(4) { background: #FFD700; }  /* 金色 */
+.color-card:nth-child(5) { background: #FFC0CB; }  /* 粉色 */
+
+.color-card:hover {
+    height: 15px;
+}
+
+/* 調整banner樣式以適應色卡 */
+.videos-banner {
+    position: relative;
+    padding-top: 10px; /* 為色卡預留空間 */
+}
+
+/* ...existing code... */
+
+/* 更新色卡樣式 */
+.color-cards {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px; /* 調整高度 */
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--primary-color), #FF8C00);
+}
+
+.color-card {
+    flex: 1;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* 使用橘黃色系陰影效果 */
+.color-card:nth-child(1) { 
+    box-shadow: inset 0 -10px 20px rgba(255, 165, 0, 0.3);
+}
+.color-card:nth-child(2) { 
+    box-shadow: inset 0 -10px 20px rgba(255, 184, 51, 0.3);
+}
+.color-card:nth-child(3) { 
+    box-shadow: inset 0 -10px 20px rgba(255, 215, 0, 0.3);
+}
+.color-card:nth-child(4) { 
+    box-shadow: inset 0 -10px 20px rgba(255, 170, 51, 0.3);
+}
+.color-card:nth-child(5) { 
+    box-shadow: inset 0 -10px 20px rgba(255, 140, 0, 0.3);
+}
+
+.color-card:hover {
+    box-shadow: inset 0 -15px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* 調整banner樣式 */
+.videos-banner {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    height: 300px;
+    background: linear-gradient(135deg, var(--primary-color), #FF8C00);
+    overflow: hidden;
+}
+
+.videos-banner h1 {
+    margin: 0;
+    padding-top: 40px; /* 讓文字往下移，為色卡空出位置 */
+}
+
+/* ...existing code... */
+
+/* 更新色卡和標題的響應式設計 */
+@media (max-width: 768px) {
+    .color-cards {
+        height: 25px; /* 手機版減小高度 */
+    }
+
+    .color-card:hover {
+        box-shadow: inset 0 -10px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .videos-banner {
+        height: 200px; /* 減小橫幅高度 */
+    }
+
+    .videos-banner h1 {
+        font-size: 2rem; /* 減小標題大小 */
+        padding-top: 25px; /* 配合色卡高度調整 */
+    }
+
+    /* 確保在小螢幕上內容不會重疊 */
+    .latest-videos {
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+}
+
+/* 超小螢幕適配 */
+@media (max-width: 480px) {
+    .color-cards {
+        height: 20px; /* 更小螢幕進一步減小高度 */
+    }
+
+    .videos-banner {
+        height: 150px;
+    }
+
+    .videos-banner h1 {
+        font-size: 1.5rem;
+        padding-top: 20px;
+    }
+}
+
+/* ...existing code... */
+
+/* 重新調整 banner 樣式 */
+.videos-banner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--primary-color), #FF8C00);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.videos-banner h1 {
+    color: white;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .videos-banner {
+        height: 200px;
+    }
+
+    .videos-banner h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .videos-banner {
+        height: 150px;
+    }
+
+    .videos-banner h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ...existing code... */
