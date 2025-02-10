@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" data-lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,14 +24,26 @@
             <div class="menu-image"></div>
             <div class="menu-right">
                 <nav class="menu-links">
-                    <a href="index.html" class="menu-link">首頁</a>
-                    <a href="profile.html" class="menu-link">個人檔案</a>
-                    <a href="videos.html" class="menu-link">影片</a>
+                    <a href="index.html" class="menu-link">
+                        <span class="zh">首頁</span>
+                        <span class="en">Home</span>
+                        <span class="ja">ホーム</span>
+                    </a>
+                    <a href="profile.html" class="menu-link">
+                        <span class="zh">個人檔案</span>
+                        <span class="en">Profile</span>
+                        <span class="ja">プロフィール</span>
+                    </a>
+                    <a href="videos.html" class="menu-link">
+                        <span class="zh">影片</span>
+                        <span class="en">Videos</span>
+                        <span class="ja">動画</span>
+                    </a>
                 </nav>
                 <div class="language-switcher">
-                    <button class="lang-btn active" data-lang="zh">中文</button>
-                    <button class="lang-btn" data-lang="ja">日本語</button>
-                    <button class="lang-btn" data-lang="en">English</button>
+                    <button class="lang-btn" onclick="toggleLanguage('zh')" data-lang="zh">中文</button>
+                    <button class="lang-btn" onclick="toggleLanguage('en')" data-lang="en">English</button>
+                    <button class="lang-btn" onclick="toggleLanguage('ja')" data-lang="ja">日本語</button>
                 </div>
             </div>
         </div>
@@ -58,7 +70,9 @@
     </div>
     <a href="index.html" class="back-home">
         <i class="fas fa-arrow-left"></i>
-        <span>back</span>
+        <span class="zh">返回</span>
+        <span class="en">Back</span>
+        <span class="ja">戻る</span>
     </a>
     <div class="floating-socials">
         <a href="https://x.com/Abei0815" class="social-float"><i class="fab fa-twitter"></i></a>
@@ -72,7 +86,11 @@
             <div class="sparkles"></div>
         </div>
 
-        <h1 class="main-title">MAGICAL MARI</h1>
+        <h1 class="main-title">
+            <span class="zh">個人資料</span>
+            <span class="en">Profile</span>
+            <span class="ja">プロフィール</span>
+        </h1>
         
         <div class="profile-container">
             <div class="full-image">
@@ -86,41 +104,92 @@
             
             <div class="info-section">
                 <div class="info-block animated-block">
-                    <h2>PROFILE</h2>
+                    <h2>
+                        <span class="zh">基本資料</span>
+                        <span class="en">Basic Info</span>
+                        <span class="ja">基本情報</span>
+                    </h2>
                     <ul>
-                        <li>Name: abei</li>
-                        <li>Height: 158cm</li>
-                        <li>Birthday: December 15, 2024</li>
+                        <li>
+                            <span class="zh">名稱: 阿北</span>
+                            <span class="en">Name: Abei</span>
+                            <span class="ja">名前: アベイ</span>
+                        </li>
+                        <li>
+                            <span class="zh">生日: 8月15日</span>
+                            <span class="en">Birthday: August 15</span>
+                            <span class="ja">誕生日: 8月15日</span>
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="info-block animated-block">
-                    <h2>ABOUT</h2>
                     <center>
-                        <p>A junior high school girl who became a Vtuber because a cat asked her to fulfill her past life's wish a wish left behind by her previous self, an old man.</p>
+                        <p></p>
                     </center>
                 </div>
                 
                 <div class="info-block animated-block">
-                    <h2>SKILLS</h2>
+                    <h2>
+                        <span class="zh">簡介</span>
+                        <span class="en">Introduction</span>
+                        <span class="ja">自己紹介</span>
+                    </h2>
+                    <center>
+                        <p>
+                            <span class="zh">
+                                一位國中女孩，因為一隻貓要求她完成前世（一位老人）未完成的心願而成為了VTuber。
+                            </span>
+                            <span class="en">
+                                A junior high school girl who became a Vtuber because a cat asked her to fulfill her past life's wish - a wish left behind by her previous self, an old man.
+                            </span>
+                            <span class="ja">
+                                猫に頼まれて、前世（老人）の願いを叶えるためにVTuberになった女子中学生。
+                            </span>
+                        </p>
+                    </center>
+                </div>
+                
+                <div class="info-block animated-block">
+                    <h2>
+                        <span class="zh">技能</span>
+                        <span class="en">SKILLS</span>
+                        <span class="ja">スキル</span>
+                    </h2>
                     <div class="skill-bars">
                         <div class="skill">
-                            <span class="skill-name">Drawing</span>
+                            <span class="skill-name">
+                                <span class="zh">繪畫</span>
+                                <span class="en">Drawing</span>
+                                <span class="ja">お絵描き</span>
+                            </span>
                             <div class="skill-bar" data-level="90%"></div>
                         </div>
                         <div class="skill">
-                            <span class="skill-name">Game</span>
+                            <span class="skill-name">
+                                <span class="zh">遊戲</span>
+                                <span class="en">Gaming</span>
+                                <span class="ja">ゲーム</span>
+                            </span>
                             <div class="skill-bar" data-level="85%"></div>
                         </div>
                         <div class="skill">
-                            <span class="skill-name">Singing</span>
+                            <span class="skill-name">
+                                <span class="zh">歌唱</span>
+                                <span class="en">Singing</span>
+                                <span class="ja">歌唱</span>
+                            </span>
                             <div class="skill-bar" data-level="75%"></div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="favorites animated-block">
-                    <h2>FAVORITES</h2>
+                    <h2>
+                        <span class="zh">我的最愛</span>
+                        <span class="en">FAVORITES</span>
+                        <span class="ja">お気に入り</span>
+                    </h2>
                     <div class="fav-grid">
                         <div class="fav-item">
                             <div class="fav-card">
@@ -128,7 +197,11 @@
                                     <img src="https://placehold.co/200x200" alt="最愛1">
                                 </div>
                                 <div class="fav-back">
-                                    <p>Favorite food: Chicken drumsticks</p>
+                                    <p>
+                                        <span class="zh">最愛的食物：雞腿</span>
+                                        <span class="en">Favorite food: Chicken drumsticks</span>
+                                        <span class="ja">好きな食べ物：チキンドラム</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +211,11 @@
                                     <img src="https://placehold.co/200x200" alt="最愛2">
                                 </div>
                                 <div class="fav-back">
-                                    <p>Favorite game: Google Doodle game</p>
+                                    <p>
+                                        <span class="zh">最愛的遊戲：Google Doodle遊戲</span>
+                                        <span class="en">Favorite game: Google Doodle game</span>
+                                        <span class="ja">好きなゲーム：Google Doodleゲーム</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -148,7 +225,11 @@
                                     <img src="https://placehold.co/200x200" alt="最愛3">
                                 </div>
                                 <div class="fav-back">
-                                    <p>Representative item: chicken drumstick</p>
+                                    <p>
+                                        <span class="zh">代表物品：雞腿</span>
+                                        <span class="en">Representative item: chicken drumstick</span>
+                                        <span class="ja">アイテム：チキンドラム</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -156,25 +237,29 @@
                 </div>
 
                 <div class="achievement-section animated-block">
-                    <h2>ACHIEVEMENTS</h2>
+                    <h2>
+                        <span class="zh">成就</span>
+                        <span class="en">ACHIEVEMENTS</span>
+                        <span class="ja">実績</span>
+                    </h2>
                     <div class="achievement-tiles">
                         <div class="achievement">
                             <i class="fas fa-trophy"></i>
-                            <center>
-                                <span>Achieved 15,000 subscribers</span>
-                            </center>
+                            <span class="zh">達到15,000訂閱者</span>
+                            <span class="en">Achieved 15,000 subscribers</span>
+                            <span class="ja">チャンネル登録者15,000人達成</span>
                         </div>
                         <div class="achievement">
                             <i class="fas fa-star"></i>
-                            <center>
-                                <span>Taiwan VTuber ranking: 1534th in subscribers</span>
-                            </center>
+                            <span class="zh">台灣VTuber訂閱排名：第1534名</span>
+                            <span class="en">Taiwan VTuber ranking: 1534th in subscribers</span>
+                            <span class="ja">台湾VTuberランキング：1534位</span>
                         </div>
                         <div class="achievement">
                             <i class="fas fa-award"></i>
-                            <center>
-                                <span>Taiwan's popular newcomers of 2025</span>
-                            </center>
+                            <span class="zh">2025年台灣新星VTuber</span>
+                            <span class="en">Taiwan's popular newcomers of 2025</span>
+                            <span class="ja">2025年台湾の注目新人VTuber</span>
                         </div>
                     </div>
                 </div>
@@ -214,5 +299,6 @@
             menuOverlay.classList.toggle('active');
         });
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
