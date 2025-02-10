@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" data-lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,20 +15,38 @@
         <div class="menu-line"></div>
         <div class="menu-line"></div>
     </div>
+    <a href="index.html" class="back-home">
+        <i class="fas fa-arrow-left"></i>
+        <span class="zh">返回</span>
+        <span class="en">Back</span>
+        <span class="ja">戻る</span>
+    </a>
     
     <div class="menu-overlay">
         <div class="menu-content">
             <div class="menu-image"></div>
             <div class="menu-right">
                 <nav class="menu-links">
-                    <a href="index.html" class="menu-link">首頁</a>
-                    <a href="profile.html" class="menu-link">個人檔案</a>
-                    <a href="videos.html" class="menu-link">影片</a>
+                    <a href="index.html" class="menu-link">
+                        <span class="zh">首頁</span>
+                        <span class="en">Home</span>
+                        <span class="ja">ホーム</span>
+                    </a>
+                    <a href="profile.html" class="menu-link">
+                        <span class="zh">個人檔案</span>
+                        <span class="en">Profile</span>
+                        <span class="ja">プロフィール</span>
+                    </a>
+                    <a href="videos.html" class="menu-link">
+                        <span class="zh">影片</span>
+                        <span class="en">Videos</span>
+                        <span class="ja">動画</span>
+                    </a>
                 </nav>
                 <div class="language-switcher">
-                    <button class="lang-btn active" data-lang="zh">中文</button>
-                    <button class="lang-btn" data-lang="ja">日本語</button>
-                    <button class="lang-btn" data-lang="en">English</button>
+                    <button class="lang-btn" onclick="toggleLanguage('zh')" data-lang="zh">中文</button>
+                    <button class="lang-btn" onclick="toggleLanguage('en')" data-lang="en">English</button>
+                    <button class="lang-btn" onclick="toggleLanguage('ja')" data-lang="ja">日本語</button>
                 </div>
             </div>
         </div>
@@ -45,16 +63,36 @@
         <div class="floating-shape shape-3"></div>
     </div>
 
+    <div class="banner-decorations">
+        <div class="banner-wave"></div>
+        <div class="banner-particles"></div>
+    </div>
+
     <div class="videos-container">
         <div class="videos-banner">
-            <h1>最新影片</h1>
+            <div class="color-cards">
+                <div class="color-card"></div>
+                <div class="color-card"></div>
+                <div class="color-card"></div>
+                <div class="color-card"></div>
+                <div class="color-card"></div>
+            </div>
+            <h1>
+                <span class="zh">影片專區</span>
+                <span class="en">Videos</span>
+                <span class="ja">動画一覧</span>
+            </h1>
+            <div class="banner-shine"></div>
         </div>
 
-        <main class="latest-videos">
-            <div class="video-grid" id="ytVideos">
-                <!-- YouTube videos will be loaded here -->
-            </div>
-        </main>
+        <div class="latest-videos">
+            <h2>
+                <span class="zh">最新影片</span>
+                <span class="en">Latest Videos</span>
+                <span class="ja">最新動画</span>
+            </h2>
+            <div class="video-grid" id="ytVideos"></div>
+        </div>
     </div>
 
     <script>
@@ -65,8 +103,10 @@
         function createVideoCard(item) {
             const videoCard = document.createElement('div');
             videoCard.className = 'video-card';
+            videoCard.setAttribute('data-aos', 'fade-up');
             videoCard.innerHTML = `
                 <div class="video-embed">
+                    <div class="shimmer-overlay"></div>
                     <iframe 
                         src="https://www.youtube.com/embed/${item.id.videoId}" 
                         frameborder="0" 
@@ -103,7 +143,13 @@
                 });
             } catch (error) {
                 console.error('Error loading YouTube videos:', error);
-                document.getElementById('ytVideos').innerHTML = '<p>無法載入影片，請稍後再試。</p>';
+                document.getElementById('ytVideos').innerHTML = `
+                    <p>
+                        <span class="zh">無法載入影片，請稍後再試。</span>
+                        <span class="en">Failed to load videos. Please try again later.</span>
+                        <span class="ja">動画を読み込めません。後でもう一度お試しください。</span>
+                    </p>
+                `;
             }
         }
 
@@ -118,5 +164,6 @@
 
         document.addEventListener('DOMContentLoaded', loadYouTubeVideos);
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
