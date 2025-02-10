@@ -3,7 +3,7 @@
 <!-- 感謝用餅贊助部分網域 -->
 
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" data-lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body class="landing-page">
-
+    
     <div class="menu-btn">
         <div class="menu-line"></div>
         <div class="menu-line"></div>
@@ -24,14 +24,26 @@
             <div class="menu-image"></div>
             <div class="menu-right">
                 <nav class="menu-links">
-                    <a href="index.html" class="menu-link">首頁</a>
-                    <a href="profile.html" class="menu-link">個人檔案</a>
-                    <a href="videos.html" class="menu-link">影片</a>
+                    <a href="index.html" class="menu-link">
+                        <span class="zh">首頁</span>
+                        <span class="en">Home</span>
+                        <span class="ja">ホーム</span>
+                    </a>
+                    <a href="profile.html" class="menu-link">
+                        <span class="zh">個人檔案</span>
+                        <span class="en">Profile</span>
+                        <span class="ja">プロフィール</span>
+                    </a>
+                    <a href="videos.html" class="menu-link">
+                        <span class="zh">影片</span>
+                        <span class="en">Videos</span>
+                        <span class="ja">動画</span>
+                    </a>
                 </nav>
                 <div class="language-switcher">
-                    <button class="lang-btn active" data-lang="zh">中文</button>
-                    <button class="lang-btn" data-lang="ja">日本語</button>
-                    <button class="lang-btn" data-lang="en">English</button>
+                    <button class="lang-btn" onclick="toggleLanguage('zh')" data-lang="zh">中文</button>
+                    <button class="lang-btn" onclick="toggleLanguage('en')" data-lang="en">English</button>
+                    <button class="lang-btn" onclick="toggleLanguage('ja')" data-lang="ja">日本語</button>
                 </div>
             </div>
         </div>
@@ -75,10 +87,18 @@
     <div class="button-section super-compact">
         <div class="button-wrapper">
             <button class="drumstick-btn" onclick="window.location.href='profile.html'">
-                <span class="btn-text">PROFILE</span>
+                <span class="btn-text">
+                    <span class="zh">個人檔案</span>
+                    <span class="en">PROFILE</span>
+                    <span class="ja">プロフィール</span>
+                </span>
             </button>
             <button class="videos-btn" onclick="window.location.href='videos.html'">
-                <span class="btn-text">VIDEOS</span>
+                <span class="btn-text">
+                    <span class="zh">影片</span>
+                    <span class="en">VIDEOS</span>
+                    <span class="ja">動画</span>
+                </span>
             </button>
         </div>
     </div>
@@ -109,5 +129,6 @@
             });
         }
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
