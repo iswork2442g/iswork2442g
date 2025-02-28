@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Discord 驗證</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #36393f;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: #2f3136;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+        }
+        .verify-btn {
+            background-color: #5865f2;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 1rem;
+        }
+        .verify-btn:hover {
+            background-color: #4752c4;
+        }
+        .login-btn {
+            background-color: #7289DA;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .login-btn:hover {
+            background-color: #5b6eae;
+        }
+        .login-btn img {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Discord 身分組驗證</h2>
+        <div id="loginSection">
+            <button class="login-btn" onclick="loginWithDiscord()">
+                <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_white_RGB.png" alt="Discord Logo">
+                使用 Discord 登入
+            </button>
+        </div>
+        <div id="verifySection" style="display: none;">
+            <p>你已登入為 <span id="username"></span></p>
+            <button class="verify-btn" onclick="verify()">點擊驗證</button>
+        </div>
+    </div>
+
+    <script>
+        // 檢查登入狀態
+        async function checkLoginStatus() {
+            try {
+                const response = await fetch('/auth/status');
+                const data = await response.json();
+                
+                if (data.loggedIn) {
+                    document.getElementById('loginSection').style.display = 'none';
+                    document.getElementById('verifySection').style.display = 'block';
+                    document.getElementById('username').textContent = data.username;
+                }
+            } catch (error) {
+                console.error('檢查登入狀態時發生錯誤:', error);
+            }
+        }
+
+        // Discord 登入
+        function loginWithDiscord() {
+            window.location.href = '/auth/discord';
+        }
+
+        // 驗證程序
+        async function verify() {
+            try {
+                const response = await fetch('/verify', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+                
+                const data = await response.json();
+                if (data.success) {
+                    alert('驗證成功！');
+                    window.close();
+                } else {
+                    alert(data.error || '驗證失敗，請稍後再試');
+                }
+            } catch (error) {
+                console.error(error);
+                alert('驗證過程發生錯誤');
+            }
+        }
+
+        // 頁面載入時檢查登入狀態
+        window.onload = checkLoginStatus;
+    </script>
+</body>
+</html>
