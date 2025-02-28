@@ -4,11 +4,31 @@ const cors = require('cors');
 const { Client, GatewayIntentBits } = require('discord.js');
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
+// 從環境變數讀取敏感資訊
+require('dotenv').config();
+
+// 添加檢查確保所有必要的環境變數都存在
+const requiredEnvVars = [
+  'DISCORD_BOT_TOKEN',
+  'GUILD_ID',
+  'ROLE_ID', 
+  'LOG_CHANNEL_ID',
+  'DISCORD_CLIENT_ID',
+  'DISCORD_CLIENT_SECRET',
+  'REDIRECT_URI'
+];
+
+for (const envVar of requiredEnvVars) {
+  if (!process.env[envVar]) {
+    throw new Error(`Missing required environment variable: ${envVar}`);
+  }
+}
+
 // Discord Bot token和設定
-const TOKEN = 'MTM0NDkyMDg1MzE0OTY0Njg4OA.Gglcxc.AJbcfgmEjxYcnTpwoMZv3EeFjZUcRY7rBRmzQ0';
-const GUILD_ID = '1319598016633765991';
-const ROLE_ID = '1319611237226512464';
-const LOG_CHANNEL_ID = '1319602236393000993';
+const TOKEN = process.env.DISCORD_BOT_TOKEN;  // 改用環境變數
+const GUILD_ID = process.env.GUILD_ID;        // 改用環境變數
+const ROLE_ID = process.env.ROLE_ID;          // 改用環境變數
+const LOG_CHANNEL_ID = process.env.LOG_CHANNEL_ID;  // 改用環境變數
 
 // 啟用CORS和JSON解析
 app.use(cors());
@@ -24,9 +44,9 @@ app.use(session({
 }));
 
 // Discord OAuth2 設定
-const DISCORD_CLIENT_ID = '1344920853149646888';
-const DISCORD_CLIENT_SECRET = '1SU8Z1N61uflTk5TVPLIqkp0IEFnI23p';
-const REDIRECT_URI = 'https://iswork2442g.github.io/iswork2442g/callback';
+const DISCORD_CLIENT_ID = process.env.DISCORD_CLIENT_ID;         // 改用環境變數
+const DISCORD_CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET; // 改用環境變數
+const REDIRECT_URI = process.env.REDIRECT_URI;                   // 改用環境變數
 
 // 處理 Discord 登入
 app.get('/auth/discord', (req, res) => {
